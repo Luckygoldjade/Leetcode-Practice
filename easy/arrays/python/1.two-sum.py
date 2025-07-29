@@ -14,10 +14,10 @@ class Solution:
         # O(n^2) time complexity.
         outer_loop = 0
         inner_loop = 0
-        for outer_loop in range(len(nums)):
-            for inner_loop in range(outer_loop + 1, len(nums)):
-                if nums[outer_loop] + nums[inner_loop] == target:
-                    return [outer_loop, inner_loop]
+        # for outer_loop in range(len(nums)):
+        #     for inner_loop in range(outer_loop + 1, len(nums)):
+        #         if nums[outer_loop] + nums[inner_loop] == target:
+        #             return [outer_loop, inner_loop]
 
         # there is one pair that adds up to target.
         # therefore, the loop exits when the pair is found.
@@ -34,9 +34,6 @@ class Solution:
                 return [hash_map[complement], outer_loop]
         # if no pair is found, return an empty list
         return []
-
-
-
 # @lc code=end
 
 # =======
