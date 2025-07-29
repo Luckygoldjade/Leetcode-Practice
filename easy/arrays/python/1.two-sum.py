@@ -19,10 +19,23 @@ class Solution:
                 if nums[outer_loop] + nums[inner_loop] == target:
                     return [outer_loop, inner_loop]
 
+        # there is one pair that adds up to target.
+        # therefore, the loop exits when the pair is found.
+        # since there is an early exit then a hashmap can be used
+        # to store the indices of the numbers.
+        hash_map = {}
+        for outer_loop in range(len(nums)):
+            complement = target - nums[outer_loop]
+            # store the index of the number in the hash_map
+            hash_map[nums[outer_loop]] = outer_loop
+
+            # check if the complement is in the hash_map
+            if complement in hash_map:
+                return [hash_map[complement], outer_loop]
+        # if no pair is found, return an empty list
+        return []
 
 
-
-        return [outer_loop, inner_loop]
 
 # @lc code=end
 
