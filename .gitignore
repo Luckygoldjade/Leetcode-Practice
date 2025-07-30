@@ -24,3 +24,7 @@ ipch/
 *.dll
 *.lib
 *.pyproj.user
+
+# onenote files
+*.one
+*.onetoc2
