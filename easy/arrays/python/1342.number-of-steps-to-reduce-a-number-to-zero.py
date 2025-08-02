@@ -65,19 +65,24 @@
 class Solution:
     def numberOfSteps(self, num: int) -> int:
         """
-        Count the number of steps to reduce num to zero.
+        Count the number of steps to reduce num to zero. divide and subtract 1 each count as a step.
         """
         no_of_steps = 0
-        while num > 0:
+        while num >= 1:
             # If num is even, divide by 2
             if num % 2 == 0:
                 num //= 2
+                no_of_steps += 1    # divide and subtract 1 each count as a step
+
             else:
                 # If num is odd, subtract 1.
                 num -= 1
+                no_of_steps += 1    # divide and subtract 1 each count as a step
+                # if num is 0
+                if num == 0:    # do not need to divide by 2 and no need to increment no_of_steps
+                    break
                 num //= 2
-            # Increment the step count
-            no_of_steps += 1
+                no_of_steps += 1    # divide and subtract 1 each count as a step
         return no_of_steps
 
 
