@@ -64,6 +64,38 @@
 # @lc code=start
 class Solution:
     def numberOfSteps(self, num: int) -> int:
-        
+        """
+        Count the number of steps to reduce num to zero.
+        """
+        no_of_steps = 0
+        while num > 0:
+            # If num is even, divide by 2
+            if num % 2 == 0:
+                num //= 2
+            else:
+                # If num is odd, subtract 1.
+                num -= 1
+                num //= 2
+            # Increment the step count
+            no_of_steps += 1
+        return no_of_steps
+
+
+
 # @lc code=end
 
+def main():
+    solution = Solution()
+
+    print(solution.numberOfSteps(14))
+    print(solution.numberOfSteps(8))
+    print(solution.numberOfSteps(123)) 
+    print(solution.numberOfSteps(0))  # Edge case: 0 should return 0 steps
+    print(solution.numberOfSteps(1))  # Edge case: 1 should return 1 step
+    
+
+
+    return
+
+if __name__ == "__main__":
+    main()
