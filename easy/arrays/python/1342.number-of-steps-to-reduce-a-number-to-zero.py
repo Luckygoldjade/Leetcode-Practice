@@ -68,21 +68,12 @@ class Solution:
         Count the number of steps to reduce num to zero. divide and subtract 1 each count as a step.
         """
         no_of_steps = 0
-        while num >= 1:
-            # If num is even, divide by 2
+        while num > 0:
             if num % 2 == 0:
                 num //= 2
-                no_of_steps += 1    # divide and subtract 1 each count as a step
-
             else:
-                # If num is odd, subtract 1.
                 num -= 1
-                no_of_steps += 1    # divide and subtract 1 each count as a step
-                # if num is 0
-                if num == 0:    # do not need to divide by 2 and no need to increment no_of_steps
-                    break
-                num //= 2
-                no_of_steps += 1    # divide and subtract 1 each count as a step
+            no_of_steps += 1
         return no_of_steps
 
 
