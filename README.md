@@ -8,7 +8,11 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 |---------|-------|-----------|-------|
 | [1. Two Sum](https://leetcode.com/problems/two-sum/) | Array | Python, JavaScript | HashMap approach |
 | [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | String | Python | Two pointers |
-| [412. Fizz-Buzz] | Array | Python |
+| [412. Fizz-Buzz](https://leetcode.com/problems/fizz-buzz/description) | String | Python |
+| [1342. Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description) | Math | Python |
+
+
+
 
 ## Topics Covered
 - Arrays
