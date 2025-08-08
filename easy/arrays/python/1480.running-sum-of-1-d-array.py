@@ -53,7 +53,25 @@
 
 # @lc code=start
 class Solution:
-    def runningSum(self, nums: List[int]) -> List[int]:
-        
+    def runningSum(self, nums: list[int]) -> list[int]:
+        """
+        Calculate the running sum of a 1D array.
+        """
+        for index in range(1, len(nums)):
+            nums[index] += nums[index - 1]
+
+        return nums
+
 # @lc code=end
 
+def main():
+    solution = Solution()
+
+    print(solution.runningSum([1, 2, 3, 4]))        # Output: [1,3,6,10]
+    print(solution.runningSum([1, 1, 1, 1, 1]))     # Output: [1,2,3,4,5]
+    print(solution.runningSum([3, 1, 2, 10, 1]))    # Output: [3,4,6,16,17]
+
+    return
+
+if __name__ == "__main__":
+    main()
