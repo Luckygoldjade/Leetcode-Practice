@@ -10,6 +10,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | String | Python | Two pointers |
 | [412. Fizz-Buzz](https://leetcode.com/problems/fizz-buzz/description) | String | Python |
 | [1342. Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description) | Math | Python |
+| [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/description) | Array | Python |
 
 
 
