@@ -28,3 +28,6 @@ ipch/
 # onenote files
 *.one
 *.onetoc2
+
+# help files
+help/
