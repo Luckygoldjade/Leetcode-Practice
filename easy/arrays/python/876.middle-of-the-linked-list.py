@@ -82,7 +82,6 @@ class Solution:
         # Start at the FIRST DATA node = self.head.next
         return middleNode(self.head.next)
 
-
     def __repr__(self):
         vals, curr = [], self.head
         while curr:
@@ -92,32 +91,67 @@ class Solution:
 
 # @lc code=end
 
+class LinkedListDirect:
+    """
+    Direct data head (no dummy)
+    class LinkedListDirect
+    """
+    def __init__(self):
+        self.head = None # first real data node
+        self.tail = None # last node
 
+    def append(self, val):
+        node = ListNode(val)
+        if not self.head: # empty
+            self.head = self.tail = node
+        else:
+            self.tail.next = node
+            self.tail = node
 
-
-
+    def find_middle(self):
+        # Start at the first REAL data node
+        return middleNode(self.head)
 
 
 def main():
     # Sentinel head (dummy before first data node)
     # class LinkedListSentinel
 
+    # # Example 1
+    # arr = [1,2,3,4,5]
+    # lls = Solution()
+    # for v in arr: lls.append(v)
+    # mid = lls.find_middle() # -s/b 3
+    # print("\n")
+    # print(mid.val)
+
+    # # Example 2
+    # arr = [1,2,3,4,5,6]
+    # lls = Solution()
+    # for v in arr: lls.append(v)
+    # mid = lls.find_middle() # -> node with val 4 (second middle of [3,4])
+    # print("\n")
+    # print(mid.val)
+
+    # --
+    # Direct data head (no dummy)
+    # class LinkedListDirect
+
     # Example 1
     arr = [1,2,3,4,5]
-    lls = Solution()
-    for v in arr: lls.append(v)
-    mid = lls.find_middle() # -s/b 3
+    ll = LinkedListDirect()
+    for v in arr: ll.append(v)
+    mid = ll.find_middle() # -> node with val 3
     print("\n")
     print(mid.val)
 
     # Example 2
     arr = [1,2,3,4,5,6]
-    lls = Solution()
-    for v in arr: lls.append(v)
-    mid = lls.find_middle() # -> node with val 4 (second middle of [3,4])
+    ll = LinkedListDirect()
+    for v in arr: ll.append(v)
+    mid = ll.find_middle() # -> node with val 4
     print("\n")
     print(mid.val)
-
 
     return
 
