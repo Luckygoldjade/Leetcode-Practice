@@ -53,23 +53,60 @@ class ListNode:
         self.val = val
         self.next = next
 
+def middleNode(first_data_node: ListNode) -> ListNode:
+    """
+    Fast/slow pointers. When length is even, returns the second middle.
+    Time: O(n), Space: O(1)
+    """
+    slow = fast = first_data_node
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
+
 class Solution:
-    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        """Find the middle node of a singly linked list."""
+    """
+    Sentinel head (dummy before first data node)
+    class LinkedListSentinel
+    """
+    def __init__(self):
+        self.head = ListNode() # dummy node (no real data)
+        self.tail = self.head # initially points to dummy
 
-        # return middle node using two-pointer technique
-        slow = head
-        fast = head
+    def append(self, val):
+        node = ListNode(val)
+        self.tail.next = node
+        self.tail = node
+
+    def find_middle(self):
+        # Start at the FIRST DATA node = self.head.next
+        return middleNode(self.head.next)
 
 
-        return
+    def __repr__(self):
+        vals, curr = [], self.head
+        while curr:
+            vals.append(str(curr.val))
+            curr = curr.next
+        return " -> ".join(vals) + " -> None"
 
 # @lc code=end
 
-def main():
-    solution = Solution()
 
-    print(solution.middleNode(ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))))  # Output: ListNode(3, ListNode(4, ListNode(5)))
+
+
+
+
+
+def main():
+    # Sentinel head (dummy before first data node)
+    # class LinkedListSentinel
+    arr = [1,2,3,4,5,6]
+    lls = Solution()
+    for v in arr: lls.append(v)
+    mid = lls.find_middle() # -> node with val 4 (second middle of [3,4])
+    print(mid.val)
+
 
     return
 
