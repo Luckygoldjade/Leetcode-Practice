@@ -11,6 +11,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [412. Fizz-Buzz](https://leetcode.com/problems/fizz-buzz/description) | String | Python |
 | [1342. Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description) | Math | Python |
 | [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/description) | Array | Python |
+| [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/description) | Linked List | Python | Slow/Fast pointer technique |
 
 
 
