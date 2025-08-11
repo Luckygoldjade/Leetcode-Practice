@@ -55,13 +55,13 @@ class ListNode:
 
 def middleNode(first_data_node: ListNode) -> ListNode:
     """
-    Fast/slow pointers. When length is even, returns the second middle.
+    Fast/slow pointer technique. When length is even, returns the second middle.
     Time: O(n), Space: O(1)
     """
     slow = fast = first_data_node
     while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
+        slow = slow.next        # moves 1 step
+        fast = fast.next.next   # moves 2 steps
     return slow
 
 class Solution:
@@ -70,8 +70,8 @@ class Solution:
     class LinkedListSentinel
     """
     def __init__(self):
-        self.head = ListNode() # dummy node (no real data)
-        self.tail = self.head # initially points to dummy
+        self.head = ListNode()  # dummy node (no real data)
+        self.tail = self.head   # initially points to dummy
 
     def append(self, val):
         node = ListNode(val)
@@ -101,10 +101,21 @@ class Solution:
 def main():
     # Sentinel head (dummy before first data node)
     # class LinkedListSentinel
+
+    # Example 1
+    arr = [1,2,3,4,5]
+    lls = Solution()
+    for v in arr: lls.append(v)
+    mid = lls.find_middle() # -s/b 3
+    print("\n")
+    print(mid.val)
+
+    # Example 2
     arr = [1,2,3,4,5,6]
     lls = Solution()
     for v in arr: lls.append(v)
     mid = lls.find_middle() # -> node with val 4 (second middle of [3,4])
+    print("\n")
     print(mid.val)
 
 
