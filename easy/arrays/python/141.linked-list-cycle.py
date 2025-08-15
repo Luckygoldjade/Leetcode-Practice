@@ -74,12 +74,12 @@ class ListNode:
 
 class Solution:
     def __init__(self):
-        self.head = ListNode() # dummy head
+        self.head = ListNode(0) # dummy head
         self.tail = self.head # initially tail is dummy
 
 
 
-    def hasCycle(self, head: [ListNode]) -> bool:
+    def hasCycle(self, head: ListNode) -> bool:
         """
         Use Floyd's Tortoise and Hare algorithm to detect cycle in linked list.
         """
@@ -90,8 +90,9 @@ class Solution:
             fast = fast.next.next
             if slow == fast:
                 return True
-
-
+            slow = slow.next
+            fast = fast.next.next
+        return False
 
     def append(self, val):
         """Append to tail (enqueue style)."""
@@ -119,38 +120,43 @@ def main():
     # to. Note that pos is not passed as a parameter.
     pos = 1
     lls = Solution()
+    cycle_start = None  # to save the address of pos node
+    pos_cnt = 0
     for v in head: 
         lls.append(v)
         # we know pos beforehand. so save the pos cycle node
         if pos >= 0:
-            cycle_start = lls.head.next
-            for _ in range(pos):
-                cycle_start = cycle_start.next      # address of pos node
+            if pos_cnt == pos:
+                cycle_start = lls.tail
+
             lls.tail.next = cycle_start
+        print("Appending:", v, "Tail now:", lls.tail.val, "tail next:", lls.tail.next.val if lls.tail.next else None)
+        pos_cnt += 1
 
     print("\n")
-    print("Sentinel:", lls)
-    print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
+    # print("Sentinel:", lls)
+    print("Sentinel middle:", lls.hasCycle(lls.head.next))
 
-    # Example 2
-    head = [1,2]
-    pos = 0
-    lls = Solution()
-    for v in head: 
-        lls.append(v)
-    print("\n")
-    print("Sentinel:", lls)
-    print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
 
-    # Example 3
-    head = [1]
-    pos = -1
-    lls = Solution()
-    for v in head: 
-        lls.append(v)
-    print("\n")
-    print("Sentinel:", lls)
-    print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
+    # # Example 2
+    # head = [1,2]
+    # pos = 0
+    # lls = Solution()
+    # for v in head: 
+    #     lls.append(v)
+    # print("\n")
+    # print("Sentinel:", lls)
+    # print("Sentinel middle:", lls.hasCycle(lls.head.next))
+
+    # # Example 3
+    # head = [1]
+    # pos = -1
+    # lls = Solution()
+    # for v in head: 
+    #     lls.append(v)
+    # print("\n")
+    # print("Sentinel:", lls)
+    # print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
 
     return
 
