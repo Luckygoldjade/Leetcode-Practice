@@ -100,13 +100,17 @@ class Solution:
         self.tail.next = new_node
         self.tail = new_node
 
-    def __repr__(self):
-        vals, cur = [], self.head.next  # skip dummy
-        while cur:
-            vals.append(str(cur.val))
-            cur = cur.next
-        return " -> ".join(vals) if vals else "∅"
-
+def __repr__(self):
+    vals, cur = [], self.head.next  # skip dummy
+    visited = set()
+    while cur:
+        if id(cur) in visited:
+            vals.append(f"{cur.val} (cycle)")
+            break
+        visited.add(id(cur))
+        vals.append(str(cur.val))
+        cur = cur.next
+    return " -> ".join(vals) if vals else "∅"
 
 # @lc code=end
 
@@ -134,7 +138,7 @@ def main():
         pos_cnt += 1
 
     print("\n")
-    # print("Sentinel:", lls)
+    print("Sentinel:", lls)
     print("Sentinel middle:", lls.hasCycle(lls.head.next))
 
 
