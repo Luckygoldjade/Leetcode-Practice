@@ -67,13 +67,94 @@
 
 # @lc code=start
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
-        
+    def __init__(self):
+        self.head = ListNode() # dummy head
+        self.tail = self.head # initially tail is dummy
+
+
+
+    def hasCycle(self, head: [ListNode]) -> bool:
+        """
+        Use Floyd's Tortoise and Hare algorithm to detect cycle in linked list.
+        """
+        # the linked list is already created in main()
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+
+
+
+    def append(self, val):
+        """Append to tail (enqueue style)."""
+        new_node = ListNode(val)
+        self.tail.next = new_node
+        self.tail = new_node
+
+    def __repr__(self):
+        vals, cur = [], self.head.next  # skip dummy
+        while cur:
+            vals.append(str(cur.val))
+            cur = cur.next
+        return " -> ".join(vals) if vals else "∅"
+
+
 # @lc code=end
+
+def main():
+    # Sentinel head (dummy before first data node)
+    # class LinkedListSentinel = Solution
+
+    # Example 1
+    head = [3,2,0,-4]
+    # Internally, pos is used to denote the index of the node that tail's next pointer is connected
+    # to. Note that pos is not passed as a parameter.
+    pos = 1
+    lls = Solution()
+    for v in head: 
+        lls.append(v)
+        # we know pos beforehand. so save the pos cycle node
+        if pos >= 0:
+            cycle_start = lls.head.next
+            for _ in range(pos):
+                cycle_start = cycle_start.next      # address of pos node
+            lls.tail.next = cycle_start
+
+    print("\n")
+    print("Sentinel:", lls)
+    print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
+
+    # Example 2
+    head = [1,2]
+    pos = 0
+    lls = Solution()
+    for v in head: 
+        lls.append(v)
+    print("\n")
+    print("Sentinel:", lls)
+    print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
+
+    # Example 3
+    head = [1]
+    pos = -1
+    lls = Solution()
+    for v in head: 
+        lls.append(v)
+    print("\n")
+    print("Sentinel:", lls)
+    print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
+
+    return
+
+if __name__ == "__main__":
+    main()
+
 
