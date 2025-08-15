@@ -90,8 +90,7 @@ class Solution:
             fast = fast.next.next
             if slow == fast:
                 return True
-            slow = slow.next
-            fast = fast.next.next
+
         return False
 
     def append(self, val):
@@ -100,17 +99,17 @@ class Solution:
         self.tail.next = new_node
         self.tail = new_node
 
-def __repr__(self):
-    vals, cur = [], self.head.next  # skip dummy
-    visited = set()
-    while cur:
-        if id(cur) in visited:
-            vals.append(f"{cur.val} (cycle)")
-            break
-        visited.add(id(cur))
-        vals.append(str(cur.val))
-        cur = cur.next
-    return " -> ".join(vals) if vals else "∅"
+    def __repr__(self):
+        vals, cur = [], self.head.next  # skip dummy
+        visited = set()
+        while cur:
+            if id(cur) in visited:
+                vals.append(f"{cur.val} (cycle)")
+                break
+            visited.add(id(cur))
+            vals.append(str(cur.val))
+            cur = cur.next
+        return " -> ".join(vals) if vals else "∅"
 
 # @lc code=end
 
@@ -118,11 +117,33 @@ def main():
     # Sentinel head (dummy before first data node)
     # class LinkedListSentinel = Solution
 
-    # Example 1
-    head = [3,2,0,-4]
-    # Internally, pos is used to denote the index of the node that tail's next pointer is connected
-    # to. Note that pos is not passed as a parameter.
-    pos = 1
+    # # Example 1
+    # head = [3,2,0,-4]
+    # # Internally, pos is used to denote the index of the node that tail's next pointer is connected
+    # # to. Note that pos is not passed as a parameter.
+    # pos = 1
+    # lls = Solution()
+    # cycle_start = None  # to save the address of pos node
+    # pos_cnt = 0
+    # for v in head: 
+    #     lls.append(v)
+    #     # we know pos beforehand. so save the pos cycle node
+    #     if pos >= 0:
+    #         if pos_cnt == pos:
+    #             cycle_start = lls.tail
+
+    #         lls.tail.next = cycle_start
+    #     print("Appending:", v, "Tail now:", lls.tail.val, "tail next:", lls.tail.next.val if lls.tail.next else None)
+    #     pos_cnt += 1
+
+    # print("\n")
+    # print("Sentinel:", lls)
+    # print("Sentinel middle:", lls.hasCycle(lls.head.next))
+
+
+    # Example 2
+    head = [1,2]
+    pos = 0
     lls = Solution()
     cycle_start = None  # to save the address of pos node
     pos_cnt = 0
@@ -142,25 +163,32 @@ def main():
     print("Sentinel middle:", lls.hasCycle(lls.head.next))
 
 
-    # # Example 2
-    # head = [1,2]
-    # pos = 0
-    # lls = Solution()
-    # for v in head: 
-    #     lls.append(v)
-    # print("\n")
-    # print("Sentinel:", lls)
-    # print("Sentinel middle:", lls.hasCycle(lls.head.next))
+
 
     # # Example 3
     # head = [1]
     # pos = -1
     # lls = Solution()
+    # cycle_start = None  # to save the address of pos node
+    # pos_cnt = 0
     # for v in head: 
     #     lls.append(v)
+    #     # we know pos beforehand. so save the pos cycle node
+    #     if pos >= 0:
+    #         if pos_cnt == pos:
+    #             cycle_start = lls.tail
+
+    #         lls.tail.next = cycle_start
+    #     print("Appending:", v, "Tail now:", lls.tail.val, "tail next:", lls.tail.next.val if lls.tail.next else None)
+    #     pos_cnt += 1
+
     # print("\n")
     # print("Sentinel:", lls)
-    # print("Sentinel middle:", lls.hasCycle(lls.head.next).val)
+    # print("Sentinel middle:", lls.hasCycle(lls.head.next))
+
+
+
+
 
     return
 
