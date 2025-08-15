@@ -67,6 +67,8 @@
 
 # @lc code=start
 # Definition for singly-linked list.
+from typing import Optional
+
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -77,9 +79,8 @@ class Solution:
         self.head = ListNode(0) # dummy head
         self.tail = self.head # initially tail is dummy
 
-
-
-    def hasCycle(self, head: ListNode) -> bool:
+    # Floyd's Tortoise and Hare algorithm
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
         """
         Use Floyd's Tortoise and Hare algorithm to detect cycle in linked list.
         """
