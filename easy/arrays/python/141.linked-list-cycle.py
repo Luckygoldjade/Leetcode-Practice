@@ -87,6 +87,8 @@ class Solution:
         # the linked list is already created in main()
         slow = fast = head
         while fast and fast.next:
+            if slow is None:  # guard for Pylance
+                return False
             slow = slow.next
             fast = fast.next.next
             if slow == fast:
