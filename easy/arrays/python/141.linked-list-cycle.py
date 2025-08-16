@@ -171,26 +171,26 @@ def main():
 
 
 
-    # Example 3
-    head = [1]
-    pos = -1
-    lls = Solution()
-    cycle_start = None  # to save the address of pos node
-    pos_cnt = 0
-    for v in head: 
-        lls.append(v)
-        # we know pos beforehand. so save the pos cycle node
-        if pos >= 0:
-            if pos_cnt == pos:
-                cycle_start = lls.tail
+    # # Example 3
+    # head = [1]
+    # pos = -1
+    # lls = Solution()
+    # cycle_start = None  # to save the address of pos node
+    # pos_cnt = 0
+    # for v in head: 
+    #     lls.append(v)
+    #     # we know pos beforehand. so save the pos cycle node
+    #     if pos >= 0:
+    #         if pos_cnt == pos:
+    #             cycle_start = lls.tail
 
-            lls.tail.next = cycle_start
-        print("Appending:", v, "Tail now:", lls.tail.val, "tail next:", lls.tail.next.val if lls.tail.next else None)
-        pos_cnt += 1
+    #         lls.tail.next = cycle_start
+    #     print("Appending:", v, "Tail now:", lls.tail.val, "tail next:", lls.tail.next.val if lls.tail.next else None)
+    #     pos_cnt += 1
 
-    print("\n")
-    print("Sentinel:", lls)
-    print("Sentinel middle:", lls.hasCycle(lls.head.next))
+    # print("\n")
+    # print("Sentinel:", lls)
+    # print("Sentinel middle:", lls.hasCycle(lls.head.next))
 
 
     return
