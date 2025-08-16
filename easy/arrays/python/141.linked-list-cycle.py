@@ -87,7 +87,7 @@ class Solution:
         # the linked list is already created in main()
         slow = fast = head
         while fast and fast.next:
-            if slow is None:  # guard for Pylance
+            if slow is None:  # guard for Pylance. initial case
                 return False
             slow = slow.next
             fast = fast.next.next
@@ -103,6 +103,10 @@ class Solution:
         self.tail = new_node
 
     def __repr__(self):
+        """
+        String representation of the linked list.
+        can be used on linked list cycle loops.
+        """
         vals, cur = [], self.head.next  # skip dummy
         visited = set()
         while cur:
@@ -144,33 +148,9 @@ def main():
     # print("Sentinel middle:", lls.hasCycle(lls.head.next))
 
 
-    # Example 2
-    head = [1,2]
-    pos = 0
-    lls = Solution()
-    cycle_start = None  # to save the address of pos node
-    pos_cnt = 0
-    for v in head: 
-        lls.append(v)
-        # we know pos beforehand. so save the pos cycle node
-        if pos >= 0:
-            if pos_cnt == pos:
-                cycle_start = lls.tail
-
-            lls.tail.next = cycle_start
-        print("Appending:", v, "Tail now:", lls.tail.val, "tail next:", lls.tail.next.val if lls.tail.next else None)
-        pos_cnt += 1
-
-    print("\n")
-    print("Sentinel:", lls)
-    print("Sentinel middle:", lls.hasCycle(lls.head.next))
-
-
-
-
-    # # Example 3
-    # head = [1]
-    # pos = -1
+    # # Example 2
+    # head = [1,2]
+    # pos = 0
     # lls = Solution()
     # cycle_start = None  # to save the address of pos node
     # pos_cnt = 0
@@ -191,6 +171,26 @@ def main():
 
 
 
+    # Example 3
+    head = [1]
+    pos = -1
+    lls = Solution()
+    cycle_start = None  # to save the address of pos node
+    pos_cnt = 0
+    for v in head: 
+        lls.append(v)
+        # we know pos beforehand. so save the pos cycle node
+        if pos >= 0:
+            if pos_cnt == pos:
+                cycle_start = lls.tail
+
+            lls.tail.next = cycle_start
+        print("Appending:", v, "Tail now:", lls.tail.val, "tail next:", lls.tail.next.val if lls.tail.next else None)
+        pos_cnt += 1
+
+    print("\n")
+    print("Sentinel:", lls)
+    print("Sentinel middle:", lls.hasCycle(lls.head.next))
 
 
     return
