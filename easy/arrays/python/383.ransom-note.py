@@ -42,6 +42,40 @@
 # @lc code=start
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        """
         
+        """
+
+
+
 # @lc code=end
 
+def main():
+    # Example 1
+    ransomNote = "a"
+    magazine = "b"
+    # Output: false
+    s = Solution()
+    print(s.canConstruct(ransomNote, magazine))
+
+
+    # Example 2:
+    ransomNote = "aa"
+    magazine = "ab"
+    # Output: false
+    s = Solution()
+    print(s.canConstruct(ransomNote, magazine))
+
+
+    # Example 3:
+    ransomNote = "aa"
+    magazine = "aab"
+    # Output: true
+    s = Solution()
+    print(s.canConstruct(ransomNote, magazine))
+
+
+    return
+
+if __name__ == "__main__":
+    main()
