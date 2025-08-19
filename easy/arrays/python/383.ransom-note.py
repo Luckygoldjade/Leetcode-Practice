@@ -53,9 +53,27 @@ class Solution:
             magazine_count[ch] = magazine_count.get(ch, 0) + 1
             print(f"magazine_count: {magazine_count}")  # debug
 
+        # check
+        # if length of ransomNote is greater than length of magazine, it cannot be constructed
+        if len(ransomNote) > len(magazine):
+            return False
 
+        # check if ransomNote can be constructed from magazine
+        for ch in ransomNote:
+            if magazine_count.get(ch, 0) == 0:
+                return False
+            magazine_count[ch] -= 1
+
+        return True
 
 # @lc code=end
+
+# # alternate for loop method to create hashmap
+#         for char in magazine: 
+#             if char in magazine_count: 
+#                 magazine_count[char] += 1
+#             else: 
+#                 magazine_count[char] = 1
 
 def main():
     # Example 1
@@ -74,12 +92,12 @@ def main():
     print(s.canConstruct(ransomNote, magazine))
 
 
-    # # Example 3:
-    # ransomNote = "aa"
-    # magazine = "aab"
-    # # Output: true
-    # s = Solution()
-    # print(s.canConstruct(ransomNote, magazine))
+    # Example 3:
+    ransomNote = "aa"
+    magazine = "aab"
+    # Output: true
+    s = Solution()
+    print(s.canConstruct(ransomNote, magazine))
 
 
     return
