@@ -43,8 +43,15 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         """
-        
+        two loops. one for each character in ransomNote, and one for each character in magazine.
+        once a letter match is found in magazine to letter in ransomNote, it is removed from magazine and the search exits. So, use hashmap for magazine.
         """
+        # convert magazine to hashmap. build a frequency map (“hashmap”) of characters in a string
+        magazine_count = {}     # magazine is string
+        # dot get() is clean built-in dict patterns (no extra import)
+        for ch in magazine:
+            magazine_count[ch] = magazine_count.get(ch, 0) + 1
+            print(f"magazine_count: {magazine_count}")  # debug
 
 
 
@@ -67,12 +74,12 @@ def main():
     print(s.canConstruct(ransomNote, magazine))
 
 
-    # Example 3:
-    ransomNote = "aa"
-    magazine = "aab"
-    # Output: true
-    s = Solution()
-    print(s.canConstruct(ransomNote, magazine))
+    # # Example 3:
+    # ransomNote = "aa"
+    # magazine = "aab"
+    # # Output: true
+    # s = Solution()
+    # print(s.canConstruct(ransomNote, magazine))
 
 
     return
