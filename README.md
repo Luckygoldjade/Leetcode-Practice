@@ -13,7 +13,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/description) | Array | Python |
 | [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/description) | Linked List | Python | Slow/Fast pointer technique |
 | [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description) | Linked List | Python | Floyd's Tortoise and Hare algorithm |
-
+| [383. Ransom Note](https://leetcode.com/problems/ransom-note/description) | Strings | Python | HashMap approach |
 
 
 
