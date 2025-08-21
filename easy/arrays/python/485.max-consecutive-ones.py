@@ -50,14 +50,18 @@ class Solution:
         only 0's and 1's in list.
         """
         # loop through list and start count on first 1.
-        ones_cnt = 0
+        current_cnt = 0
+        best_cnt = 0
         # after first 1, exit on 0.
         for ind in range(len(nums)):
             if nums[ind] == 1:
-                ones_cnt += 1
-            else:
-                break
-        return ones_cnt
+                current_cnt += 1
+                if current_cnt > best_cnt:
+                    best_cnt = current_cnt
+            # else:
+            #     # breaks on count on 0.
+            #     break
+        return best_cnt
 
 
 # @lc code=end
