@@ -45,7 +45,31 @@
 
 # @lc code=start
 class Solution:
-    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
-        
+    def findMaxConsecutiveOnes(self, nums: list[int]) -> int:
+        """
+        only 0's and 1's in list.
+        """
+        # loop through list and start count on first 1.
+        ones_cnt = 0
+        # after first 1, exit on 0.
+        for ind in range(len(nums)):
+            if nums[ind] == 1:
+                ones_cnt += 1
+            else:
+                break
+        return ones_cnt
+
+
 # @lc code=end
 
+def main():
+    # Example 1
+    nums = [1,1,0,1,1,1]
+    # Output: 3
+    s = Solution()
+    print(s.findMaxConsecutiveOnes(nums))
+
+    return
+
+if __name__ == "__main__":
+    main()
