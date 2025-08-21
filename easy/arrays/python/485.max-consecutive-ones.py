@@ -58,9 +58,11 @@ class Solution:
                 current_cnt += 1
                 if current_cnt > best_cnt:
                     best_cnt = current_cnt
-            # else:
-            #     # breaks on count on 0.
-            #     break
+            else:
+                # reset current count on 0.
+                # no break on 0. it will continue counting to end.
+                current_cnt = 0
+
         return best_cnt
 
 
