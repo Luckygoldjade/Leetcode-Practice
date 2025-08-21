@@ -62,6 +62,9 @@ class Solution:
                 # reset current count on 0.
                 # no break on 0. it will continue counting to end.
                 current_cnt = 0
+                # early exit if remaining elements are less than best count.
+                if len(nums) - ind < best_cnt:
+                    break
 
         return best_cnt
 
@@ -74,6 +77,14 @@ def main():
     # Output: 3
     s = Solution()
     print(s.findMaxConsecutiveOnes(nums))
+
+
+    # Example 2
+    nums = [1,0,1,1,0,1]
+    # Output: 2
+    s = Solution()
+    print(s.findMaxConsecutiveOnes(nums))
+
 
     return
 
