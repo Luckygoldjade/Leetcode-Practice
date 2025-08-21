@@ -14,6 +14,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/description) | Linked List | Python | Slow/Fast pointer technique |
 | [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description) | Linked List | Python | Floyd's Tortoise and Hare algorithm |
 | [383. Ransom Note](https://leetcode.com/problems/ransom-note/description) | Strings | Python | HashMap approach |
+| [485. Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/description) | Array | Python |
 
 
 
