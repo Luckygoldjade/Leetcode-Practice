@@ -52,7 +52,32 @@
 
 # @lc code=start
 class Solution:
-    def findNumbers(self, nums: List[int]) -> int:
-        
+    def findNumbers(self, nums: list[int]) -> int:
+        """
+        for each number in list, count digits and check if even. each number does not mean anything.
+        """
+        count = 0
+        # loop through each number in the list
+        for num in nums:
+            # count the number of digits
+            if len(str(num)) % 2 == 0:  # convert number to string and check length. strings are iterable
+                # if even, increment count
+                count += 1
+
+        return count
+
 # @lc code=end
 
+def main():
+    solution = Solution()
+
+    # Example 1 test case
+    print("count = ",solution.findNumbers([12, 345, 2, 6, 7896]))
+
+    # Example 2 test case
+    print("count = ",solution.findNumbers([555, 901, 482, 1771]))
+
+    return
+
+if __name__ == "__main__":
+    main()
