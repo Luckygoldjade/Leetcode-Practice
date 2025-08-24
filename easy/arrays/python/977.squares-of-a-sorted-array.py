@@ -50,6 +50,14 @@
 # @lc code=start
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
+        """
+        There will be an output array list.
+        After an element is squared, it will be placed in the output array list in ascending order.
+        There will be two output array list pointers. 
+        One pointer is on left pointing to smallest number. Second pointer is on right pointing to largest number.
+        """
+
+
         
 # @lc code=end
 
