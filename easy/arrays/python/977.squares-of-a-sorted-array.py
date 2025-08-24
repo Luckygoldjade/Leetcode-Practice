@@ -49,14 +49,28 @@
 
 # @lc code=start
 class Solution:
-    def sortedSquares(self, nums: List[int]) -> List[int]:
+    def sortedSquares(self, nums: list[int]) -> list[int]:
         """
         There will be an output array list.
         After an element is squared, it will be placed in the output array list in ascending order.
         There will be two output array list pointers. 
         One pointer is on left pointing to smallest number. Second pointer is on right pointing to largest number.
         """
+        n = len(nums)           # index is 0 to n-1
+        output_arry = [0] * n
+        left_ptr = 0            # initialize left pointer index to far left
+        right_ptr = n - 1       # initialize right pointer index to far right
+        while left_ptr <= right_ptr:
+            left_square = nums[left_ptr] ** 2
+            right_square = nums[right_ptr] ** 2
+            if left_square > right_square:
+                output_arry[right_ptr - left_ptr] = left_square
+                left_ptr += 1
+            else:
+                output_arry[right_ptr - left_ptr] = right_square
+                right_ptr -= 1
 
+        return output_arry
 
 
 # @lc code=end
