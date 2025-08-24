@@ -1,0 +1,95 @@
+#
+# @lc app=leetcode id=977 lang=python3
+#
+# [977] Squares of a Sorted Array
+#
+# https://leetcode.com/problems/squares-of-a-sorted-array/description/
+#
+# algorithms
+# Easy (73.27%)
+# Likes:    9809
+# Dislikes: 257
+# Total Accepted:    2.3M
+# Total Submissions: 3.2M
+# Testcase Example:  '[-4,-1,0,3,10]'
+#
+# Given an integer array nums sorted in non-decreasing order, return an array
+# of the squares of each number sorted in non-decreasing order.
+# 
+# 
+# Example 1:
+# 
+# 
+# Input: nums = [-4,-1,0,3,10]
+# Output: [0,1,9,16,100]
+# Explanation: After squaring, the array becomes [16,1,0,9,100].
+# After sorting, it becomes [0,1,9,16,100].
+# 
+# 
+# Example 2:
+# 
+# 
+# Input: nums = [-7,-3,2,3,11]
+# Output: [4,9,9,49,121]
+# 
+# 
+# 
+# Constraints:
+# 
+# 
+# 1 <= nums.length <= 10^4
+# -10^4 <= nums[i] <= 10^4
+# nums is sorted in non-decreasing order.
+# 
+# 
+# 
+# Follow up: Squaring each element and sorting the new array is very trivial,
+# could you find an O(n) solution using a different approach?
+#
+
+# @lc code=start
+class Solution:
+    def sortedSquares(self, nums: list[int]) -> list[int]:
+        """
+        There will be an output array list.
+        After an element is squared, it will be placed in the output array list in ascending order.
+        There will be two output array list pointers. 
+        One pointer is on left pointing to smallest number. Second pointer is on right pointing to largest number.
+        """
+        n = len(nums)           # index is 0 to n-1
+        output_arry = [0] * n
+        left_ptr = 0            # initialize left pointer index to far left
+        right_ptr = n - 1       # initialize right pointer index to far right
+        while left_ptr <= right_ptr:
+            left_square = nums[left_ptr] ** 2
+            right_square = nums[right_ptr] ** 2
+            if left_square > right_square:
+                output_arry[right_ptr - left_ptr] = left_square
+                left_ptr += 1
+            else:
+                output_arry[right_ptr - left_ptr] = right_square
+                right_ptr -= 1
+
+        return output_arry
+
+
+# @lc code=end
+
+
+def main():
+    solution = Solution()
+
+    # Example 1 test case
+    nums = [-4,-1,0,3,10]
+    # Output: [0,1,9,16,100]
+    print("Example 1 Output: ", solution.sortedSquares(nums))
+
+    # Example 2 test case
+    nums = [-7,-3,2,3,11]
+    # Output: [4,9,9,49,121]
+    print("Example 2 Output: ", solution.sortedSquares(nums))
+
+    return
+
+if __name__ == "__main__":
+    main()

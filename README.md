@@ -15,7 +15,8 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description) | Linked List | Python | Floyd's Tortoise and Hare algorithm |
 | [383. Ransom Note](https://leetcode.com/problems/ransom-note/description) | Strings | Python | HashMap approach |
 | [485. Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/description) | Array | Python |
-| [1295. Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits) | Array | Python | num to string "
+| [1295. Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits) | Array | Python | num to string
+| [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/description) | Array | Python | Two end pointers
 
 
 
