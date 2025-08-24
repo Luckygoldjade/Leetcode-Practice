@@ -58,6 +58,24 @@ class Solution:
         """
 
 
-        
+
 # @lc code=end
 
+
+def main():
+    solution = Solution()
+
+    # Example 1 test case
+    nums = [-4,-1,0,3,10]
+    # Output: [0,1,9,16,100]
+    print("Example 1 Output: ", solution.sortedSquares(nums))
+
+    # Example 2 test case
+    nums = [-7,-3,2,3,11]
+    # Output: [4,9,9,49,121]
+    print("Example 2 Output: ", solution.sortedSquares(nums))
+
+    return
+
+if __name__ == "__main__":
+    main()
