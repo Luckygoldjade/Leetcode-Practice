@@ -64,3 +64,26 @@ class Solution:
             if arr[i] == 0:
                 zero_count += 1
         # Shift elements to the right by the number of zeros found
+
+
+
+
+def main():
+    solution = Solution()
+
+    # Example 1 test case
+    arr1 = [1,0,2,3,0,4,5,0]
+    solution.duplicateZeros(arr1)
+    print("Example 1 output:", arr1)
+    # Output: [1,0,0,2,3,0,0,4]
+
+    # Example 2 test case
+    arr2 = [1,2,3]
+    solution.duplicateZeros(arr2)
+    print("Example 2 output:", arr2)
+    # Output: [1,2,3]
+
+    return
+
+if __name__ == "__main__":
+    main()
