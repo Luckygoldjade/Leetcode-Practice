@@ -57,33 +57,56 @@ class Solution:
         The array size is fixed and new duplicate zeros cannot be added.
         When a zero is detected, the elements to the right are shifted one position to the right.
         """
+        # There are two main approaches to solve this problem:
+        # 1. Use a two-pass algorithm to first count the zeros and then shift elements.
+        # Moving-boundary pre-scan. Compute possible_dups How many zeros can actually be duplicated within the fixed size 
+        # and the last readable index.
+
+        # 2. Use a single pass with a write pointer to overwrite elements in place.
+        # Virtual-length pre-scan. Compute: total_zeros (all zeros, not just duplicable).
+
+        # I will use the moving-boundary pre-scan approach. First approach
         n = len(arr)
-        # Prescan of the array to count zeros
-        zero_count = 0
-        for i in range(n):
+
+
+        possible_dups = 0
+        last_readable = n - 1
+
+        # Pre scan to see how many zeros can be duplicated
+        # left is boundary pointer
+        left = 0
+        while left <= last_readable - possible_dups:
+            if arr[left] == 0:
+                # special case: zero at the last readable position
+                if left == last_readable - possible_dups:
+                    # If we encounter a zero at the last readable position,
+                    # we just set it to zero and reduce the last readable index by one.
+                    arr[last_readable] = 0  # just set the last element to zero
+                    last_readable -= 1
+                    left += 1
+                    break
+                possible_dups += 1
+            left += 1
+
+
+
+        # backward filling of output array
+        for i in range(last_readable - possible_dups, -1, -1):
             if arr[i] == 0:
-                zero_count += 1
-        # Shift elements to the right by the number of zeros found
-        # start from the last index and move backwards
-        i = n - 1       # read head
-        wr_head = n - 1  # write head
-        if zero_count > 0:
-            zero_count -= 1  # start index adjustment
-        for rd_head in range(n - 1 - zero_count, -1, -1):
-            if arr[rd_head] == 0:
-                arr[wr_head] = 0
-                wr_head -= 1
-                if wr_head < n:
-                    arr[wr_head] = 0    # duplicate zero
-                    wr_head -= 1
+                arr[i + possible_dups] = 0
+                possible_dups -= 1
+                arr[i + possible_dups] = 0      # duplicate the zero
             else:
-                arr[wr_head] = arr[rd_head]
-                wr_head -= 1
+                arr[i + possible_dups] = arr[i]
+
+        return None
+    
+# @lc code=end
 
 
 def main():
     solution = Solution()
-
+    print("\n")
     # Example 1 test case
     arr1 = [1,0,2,3,0,4,5,0]
     solution.duplicateZeros(arr1)
