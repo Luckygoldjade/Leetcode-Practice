@@ -51,10 +51,16 @@
 
 # @lc code=start
 class Solution:
-    def duplicateZeros(self, arr: List[int]) -> None:
+    def duplicateZeros(self, arr: list[int]) -> None:
         """
         Do not return anything, modify arr in-place instead.
+        The array size is fixed and new duplicate zeros cannot be added.
+        When a zero is detected, the elements to the right are shifted one position to the right.
         """
-        
-# @lc code=end
-
+        n = len(arr)
+        # Prescan of the array to count zeros
+        zero_count = 0
+        for i in range(n):
+            if arr[i] == 0:
+                zero_count += 1
+        # Shift elements to the right by the number of zeros found
