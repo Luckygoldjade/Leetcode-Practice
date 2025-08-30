@@ -74,10 +74,29 @@
 
 # @lc code=start
 class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        
+        # use three pointers. one for nums1_ptr array length and another for nums2_ptr array length 
+        # and merge_ptr for the output array length m + n.
+        # loop until nums2_ptr is -1
+        # length of nums1 array is m + n which is output array length.
+        # if nums1 length is 0 then just copy nums2 to nums1
+        if m == 0:
+            nums1[:n] = nums2
+            return None
+        # if nums2 length is 0 then just return nums1
+        if n == 0:
+            return None
+
+        # 
+
+
+
+
+
+        return None
+    
 # @lc code=end
 
