@@ -1,0 +1,147 @@
+#
+# @lc app=leetcode id=88 lang=python3
+#
+# [88] Merge Sorted Array
+#
+# https://leetcode.com/problems/merge-sorted-array/description/
+#
+# algorithms
+# Easy (53.18%)
+# Likes:    17631
+# Dislikes: 2462
+# Total Accepted:    4.9M
+# Total Submissions: 9.2M
+# Testcase Example:  '[1,2,3,0,0,0]\n3\n[2,5,6]\n3'
+#
+# You are given two integer arrays nums1 and nums2, sorted in non-decreasing
+# order, and two integers m and n, representing the number of elements in nums1
+# and nums2 respectively.
+# 
+# Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+# 
+# The final sorted array should not be returned by the function, but instead be
+# stored inside the array nums1. To accommodate this, nums1 has a length of m +
+# n, where the first m elements denote the elements that should be merged, and
+# the last n elements are set to 0 and should be ignored. nums2 has a length of
+# n.
+# 
+# 
+# Example 1:
+# 
+# 
+# Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+# Output: [1,2,2,3,5,6]
+# Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+# The result of the merge is [1,2,2,3,5,6] with the underlined elements coming
+# from nums1.
+# 
+# 
+# Example 2:
+# 
+# 
+# Input: nums1 = [1], m = 1, nums2 = [], n = 0
+# Output: [1]
+# Explanation: The arrays we are merging are [1] and [].
+# The result of the merge is [1].
+# 
+# 
+# Example 3:
+# 
+# 
+# Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+# Output: [1]
+# Explanation: The arrays we are merging are [] and [1].
+# The result of the merge is [1].
+# Note that because m = 0, there are no elements in nums1. The 0 is only there
+# to ensure the merge result can fit in nums1.
+# 
+# 
+# 
+# Constraints:
+# 
+# 
+# nums1.length == m + n
+# nums2.length == n
+# 0 <= m, n <= 200
+# 1 <= m + n <= 200
+# -10^9 <= nums1[i], nums2[j] <= 10^9
+# 
+# 
+# 
+# Follow up: Can you come up with an algorithm that runs in O(m + n) time?
+# 
+#
+
+# @lc code=start
+class Solution:
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        # use three pointers. one for nums1_ptr array length and another for nums2_ptr array length 
+        # and merge_ptr for the output array length m + n.
+        # loop until nums2_ptr is -1
+        # length of nums1 array is m + n which is output array length.
+        # if nums1 length is 0 then just copy nums2 to nums1
+        if m == 0:      # if nums1 array is not empty then m = 0, meaning array is empty
+            nums1[:n] = nums2
+            return None
+        # if nums2 length is 0 then just return nums1
+        if n == 0:
+            return None
+
+        # both arrays are ascending order. we can use three pointers to merge them.
+        # start from the end of both arrays and compare the elements and put the larger one at the end of nums1
+        nums1_ptr = m - 1
+        nums2_ptr = n - 1
+        merge_ptr = m + n - 1
+
+        while nums2_ptr >= 0:
+            if nums1_ptr >= 0 and nums1[nums1_ptr] > nums2[nums2_ptr]:
+                # nums1 > nums2
+                nums1[merge_ptr] = nums1[nums1_ptr]
+                nums1_ptr -= 1
+            else:
+                # nums1 < nums2
+                nums1[merge_ptr] = nums2[nums2_ptr]
+                nums2_ptr -= 1
+            merge_ptr -= 1
+
+        return None
+    
+# @lc code=end
+
+def main():
+    solution = Solution()
+    print("\n")
+    # Example 1 test case
+    nums1 = [1,2,3,0,0,0]
+    m = 3
+    nums2 = [2,5,6]
+    n = 3
+    solution.merge(nums1, m, nums2, n)
+    print("Example 1 output:", nums1)
+    # Output: [1,2,2,3,5,6]
+
+    # Example 2 test case
+    nums1 = [1]
+    m = 1
+    nums2 = []
+    n = 0
+    solution.merge(nums1, m, nums2, n)
+    print("Example 2 output:", nums1)
+    # Output: [1]
+
+    # Example 3 test case
+    nums1 = [0]
+    m = 0
+    nums2 = [1]
+    n = 1
+    solution.merge(nums1, m, nums2, n)
+    print("Example 3 output:", nums1)
+    # Output: [1]
+
+    return
+
+if __name__ == "__main__":
+    main()
