@@ -18,6 +18,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [1295. Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits) | Array | Python | num to string
 | [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/description) | Array | Python | Two end pointers
 | [1089. Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/description) | Array Insertion | Python | moving-boundary pre-scan and two pointer backward fill approach
+| [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description) | Array Insertion | Python | 3 pointer approach
 
 
 
