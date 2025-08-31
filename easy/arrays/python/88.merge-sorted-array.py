@@ -83,18 +83,29 @@ class Solution:
         # loop until nums2_ptr is -1
         # length of nums1 array is m + n which is output array length.
         # if nums1 length is 0 then just copy nums2 to nums1
-        if m == 0:      # if nums1 is not empty then m = 0, meaning array is empty
+        if m == 0:      # if nums1 array is not empty then m = 0, meaning array is empty
             nums1[:n] = nums2
             return None
         # if nums2 length is 0 then just return nums1
         if n == 0:
             return None
 
-        # 
+        # both arrays are ascending order. we can use three pointers to merge them.
+        # start from the end of both arrays and compare the elements and put the larger one at the end of nums1
+        nums1_ptr = m - 1
+        nums2_ptr = n - 1
+        merge_ptr = m + n - 1
 
-
-
-
+        while nums2_ptr >= 0:
+            if nums1_ptr >= 0 and nums1[nums1_ptr] > nums2[nums2_ptr]:
+                # nums1 > nums2
+                nums1[merge_ptr] = nums1[nums1_ptr]
+                nums1_ptr -= 1
+            else:
+                # nums1 < nums2
+                nums1[merge_ptr] = nums2[nums2_ptr]
+                nums2_ptr -= 1
+            merge_ptr -= 1
 
         return None
     
