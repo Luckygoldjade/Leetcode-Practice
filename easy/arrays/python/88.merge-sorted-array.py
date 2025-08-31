@@ -83,7 +83,7 @@ class Solution:
         # loop until nums2_ptr is -1
         # length of nums1 array is m + n which is output array length.
         # if nums1 length is 0 then just copy nums2 to nums1
-        if m == 0:
+        if m == 0:      # if nums1 is not empty then m = 0, meaning array is empty
             nums1[:n] = nums2
             return None
         # if nums2 length is 0 then just return nums1
@@ -100,3 +100,37 @@ class Solution:
     
 # @lc code=end
 
+def main():
+    solution = Solution()
+    print("\n")
+    # Example 1 test case
+    nums1 = [1,2,3,0,0,0]
+    m = 3
+    nums2 = [2,5,6]
+    n = 3
+    solution.merge(nums1, m, nums2, n)
+    print("Example 1 output:", nums1)
+    # Output: [1,2,2,3,5,6]
+
+    # Example 2 test case
+    nums1 = [1]
+    m = 1
+    nums2 = []
+    n = 0
+    solution.merge(nums1, m, nums2, n)
+    print("Example 2 output:", nums1)
+    # Output: [1]
+
+    # Example 3 test case
+    nums1 = [0]
+    m = 0
+    nums2 = [1]
+    n = 1
+    solution.merge(nums1, m, nums2, n)
+    print("Example 3 output:", nums1)
+    # Output: [1]
+
+    return
+
+if __name__ == "__main__":
+    main()
