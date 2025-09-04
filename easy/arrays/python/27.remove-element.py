@@ -89,11 +89,10 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # Two pointers approach
-        # One pointer (i) iterates through the array from left to right.
-        # The other pointer (k) keeps track of the position to place the next non-val element
-
-
+        # Two-pointer in-place overwrite (preserves order of keepers)
+        # read pointer scans left → right.
+        # write pointer marks the next slot to place a keeper.
+        # If nums[read] should be kept, copy it to nums[write] and advance write.
 
 
 # @lc code=end
