@@ -85,7 +85,35 @@
 
 # @lc code=start
 class Solution:
-    def removeElement(self, nums: List[int], val: int) -> int:
-        
+    def removeElement(self, nums: list[int], val: int) -> int:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        # Two pointers approach
+        # One pointer (i) iterates through the array from left to right.
+        # The other pointer (k) keeps track of the position to place the next non-val element
+
+
+
+
 # @lc code=end
 
+def main():
+    # Example 1:
+    nums = [3, 2, 2, 3]
+    val = 3
+    sol = Solution()
+    k = sol.removeElement(nums, val)
+    print("Output:", k)       # 2
+    print("Modified array:", nums[:k])  # [2, 2]
+
+    # Example 2:
+    nums = [0, 1, 2, 2, 3, 0, 4, 2]
+    val = 2
+    k = sol.removeElement(nums, val)
+    print("Output:", k)       # 5
+    print("Modified array:", nums[:k])  # [0, 1, 4, 0, 3]
+
+
+if __name__ == "__main__":
+    main()
