@@ -91,6 +91,7 @@ class Solution:
         return the new length of nums with all occurrences of val removed.
         """
         # Two-pointer in-place overwrite (preserves order of keepers)
+        # write pointer moves left to right.
         # read pointer scans left to right.
         # write pointer marks the next slot to place a keeper.
         # If nums[read] should be kept, copy it to nums[write] and advance write.
