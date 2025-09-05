@@ -83,6 +83,27 @@
 # @lc code=start
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        
+        """
+        Two pointers approach.
+        """
+
+        return 0
 # @lc code=end
 
+def main():
+    # Example 1:
+    nums = [1,1,2]
+    sol = Solution()
+    k = sol.removeDuplicates(nums)
+    print("Output:", k)       # 2
+    print("Modified array:", nums[:k])  # [1, 2]
+
+    # Example 2:
+    nums = [0,0,1,1,1,2,2,3,3,4]
+    k = sol.removeDuplicates(nums)
+    print("Output:", k)       # 5
+    print("Modified array:", nums[:k])  # [0, 1, 2, 3, 4]
+
+
+if __name__ == "__main__":
+    main()
