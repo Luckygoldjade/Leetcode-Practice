@@ -87,13 +87,20 @@
 class Solution:
     def removeElement(self, nums: list[int], val: int) -> int:
         """
-        Do not return anything, modify nums in-place instead.
+        Do modify nums in-place instead.
+        return the new length of nums with all occurrences of val removed.
         """
         # Two-pointer in-place overwrite (preserves order of keepers)
-        # read pointer scans left → right.
+        # read pointer scans left to right.
         # write pointer marks the next slot to place a keeper.
         # If nums[read] should be kept, copy it to nums[write] and advance write.
+        write = 0       # write pointer moves left to right
+        for read in range(len(nums)):
+            if nums[read] != val:
+                nums[write] = nums[read]
+                write += 1
 
+        return write
 
 # @lc code=end
 
