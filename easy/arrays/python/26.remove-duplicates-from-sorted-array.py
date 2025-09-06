@@ -82,12 +82,21 @@
 
 # @lc code=start
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
+    def removeDuplicates(self, nums: list[int]) -> int:
         """
-        Two pointers approach.
+        Two pointers approach. One pointer (read_ptr) iterates through the array,
+        while the other pointer (write_ptr) keeps track of the position to write the next unique element.
         """
-
-        return 0
+        if not nums:    # Edge case: empty array
+            return 0
+        
+        write_ptr = 1  # Pointer to place the next unique element
+        for read_ptr in range(1, len(nums)):
+            if nums[read_ptr] != nums[read_ptr - 1]:
+                nums[write_ptr] = nums[read_ptr]
+                write_ptr += 1
+        return write_ptr
+    
 # @lc code=end
 
 def main():
