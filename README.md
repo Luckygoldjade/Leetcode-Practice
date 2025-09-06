@@ -19,6 +19,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/description) | Array | Python | Two end pointers
 | [1089. Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/description) | Array Insertion | Python | moving-boundary pre-scan and two pointer backward fill approach
 | [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description) | Array Insertion | Python | 3 pointer approach
+| [27. Remove Element](https://leetcode.com/problems/remove-element/description) | Array Deletion | Python | 2 pointer approach
 | [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description) | Array Deletion | Python | 2 pointer approach
 
 
