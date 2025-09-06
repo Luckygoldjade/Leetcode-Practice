@@ -55,3 +55,20 @@ class Solution:
         
 # @lc code=end
 
+def main():
+    sol = Solution()
+
+    # Example 1
+    arr = [10,2,5,3]
+    print(sol.checkIfExist(arr))
+    # Output: true
+
+    # Example 2
+    arr = [3,1,7,11]
+    print(sol.checkIfExist(arr))
+    # Output: false
+    
+    return
+
+if __name__ == "__main__":
+    main()
