@@ -51,8 +51,35 @@
 
 # @lc code=start
 class Solution:
-    def checkIfExist(self, arr: List[int]) -> bool:
-        
+    def checkIfExist(self, arr: list[int]) -> bool:
+        """
+
+        """
+        # use a read pointer to traverse the array
+        # use a set to track seen numbers
+        # A set is a guest list: you check if a name is on it—simple yes/no.
+        # A hashmap is a rolodex: each name has a card with extra details. Great if you need those details; overkill if you just need to know whether they’re in the building.
+        seen = set()
+
+        # step 1: Edge Cases
+        # edge case: 0,0
+        if 0 in seen and 0 in arr:
+            return True
+
+        # step 2: create seen set
+        # loop through the array for seen numbers
+        # add to seen set for double or half
+        for read_ptr in range(len(arr)):
+            
+
+
+        # step 3: compare each number to seen set
+        # use a read pointer to traverse the array
+        # compare each number to seen set
+
+
+
+        return True
 # @lc code=end
 
 def main():
@@ -67,7 +94,7 @@ def main():
     arr = [3,1,7,11]
     print(sol.checkIfExist(arr))
     # Output: false
-    
+
     return
 
 if __name__ == "__main__":
