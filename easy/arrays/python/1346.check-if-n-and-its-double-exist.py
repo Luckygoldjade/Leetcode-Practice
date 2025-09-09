@@ -53,7 +53,10 @@
 class Solution:
     def checkIfExist(self, arr: list[int]) -> bool:
         """
-
+        nested loop approach but use a set to track seen numbers and one loop
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        similar to using one pointer for read and set Not hashmap for seen numbers
         """
         # use a read pointer to traverse the array
         # use a set to track seen numbers
@@ -70,16 +73,19 @@ class Solution:
         # loop through the array for seen numbers
         # add to seen set for double or half
         for read_ptr in range(len(arr)):
-            
-
+            seen.add(arr[read_ptr] * 2)
+            seen.add(arr[read_ptr] / 2)
+            print(f"seen: {seen}")
 
         # step 3: compare each number to seen set
         # use a read pointer to traverse the array
         # compare each number to seen set
+        for read_ptr in range(len(arr)):
+            if arr[read_ptr] in seen:
+                return True
 
-
-
-        return True
+        return False
+    
 # @lc code=end
 
 def main():
