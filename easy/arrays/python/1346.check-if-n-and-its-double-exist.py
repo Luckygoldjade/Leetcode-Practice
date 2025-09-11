@@ -91,15 +91,20 @@ class Solution:
 def main():
     sol = Solution()
 
-    # Example 1
-    arr = [10,2,5,3]
-    print(sol.checkIfExist(arr))
-    # Output: true
+    # # Example 1
+    # arr = [10,2,5,3]
+    # print(sol.checkIfExist(arr))
+    # # Output: true
 
-    # Example 2
-    arr = [3,1,7,11]
+    # # Example 2
+    # arr = [3,1,7,11]
+    # print(sol.checkIfExist(arr))
+    # # Output: false
+
+    # Example 3
+    arr = [0,-2,2]
     print(sol.checkIfExist(arr))
-    # Output: false
+    # Output: False
 
     return
 
