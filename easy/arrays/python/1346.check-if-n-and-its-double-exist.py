@@ -72,14 +72,14 @@ class Solution:
         # use a read pointer to traverse the array
         # compare each number to seen set
         for read_ptr in range(len(arr)):
-            # odd or even number then check for double in seen
+            # all odd or even number then check for double in seen
             if arr[read_ptr] * 2 in seen:
                 # step 2
                 # always check first; if match, then add x
                 seen.add(arr[read_ptr])
                 print(f"seen: {seen}")
                 return True
-            # even number then check for half in seen
+            # only even number then check for half in seen
             if arr[read_ptr] % 2 == 0 and arr[read_ptr] / 2 in seen:
                 # step 2
                 # always check first; if no match, then add x
