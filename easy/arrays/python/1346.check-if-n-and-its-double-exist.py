@@ -90,20 +90,17 @@ class Solution:
             if arr[read_ptr] * 2 in seen:
                 # always check first; if no match, then add x
                 seen.add(arr[read_ptr])
-                # seen.add(arr[read_ptr] * 2)
                 print(f"seen: {seen}")
                 return True
             # even number then check for half in seen
             if arr[read_ptr] % 2 == 0 and arr[read_ptr] / 2 in seen:
                 # always check first; if no match, then add x
                 seen.add(arr[read_ptr])
-                # seen.add(arr[read_ptr] / 2)
                 print(f"seen: {seen}")
                 return True
             else:
                 # add current number to seen set
                 seen.add(arr[read_ptr])
-                seen.add(arr[read_ptr] / 2)
                 print(f"seen: {seen}")
         
         return False
