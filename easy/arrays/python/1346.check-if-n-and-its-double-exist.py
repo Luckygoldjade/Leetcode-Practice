@@ -57,6 +57,9 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n)
         similar to using one pointer for read and set Not hashmap for seen numbers
+        we are finding a pair that satisfies the condition
+        one of the pair is arr[i] which is element in the input array.
+        the other one of the pair is element in arr[j] which is the seen set.
         """
         # use a read pointer to traverse the array
         # use a set to track seen numbers
@@ -66,24 +69,43 @@ class Solution:
 
         # step 1: Edge Cases
         # edge case: 0,0
-        if 0 in seen and 0 in arr:
-            return True
+        # if 0 in seen and 0 in arr:
+        #     return True
+        # print(f"seen: {seen}")
+
 
         # step 2: create seen set
         # loop through the array for seen numbers
         # add to seen set for double or half
-        for read_ptr in range(len(arr)):
-            seen.add(arr[read_ptr] * 2)
-            seen.add(arr[read_ptr] / 2)
-            print(f"seen: {seen}")
+        # for read_ptr in range(len(arr)):
+        #     seen.add(arr[read_ptr] * 2)
+        #     seen.add(arr[read_ptr] / 2)
+        #     print(f"seen: {seen}")
 
         # step 3: compare each number to seen set
         # use a read pointer to traverse the array
         # compare each number to seen set
         for read_ptr in range(len(arr)):
-            if arr[read_ptr] in seen:
+            # odd or even number then check for double in seen
+            if arr[read_ptr] * 2 in seen:
+                # always check first; if no match, then add x
+                seen.add(arr[read_ptr])
+                # seen.add(arr[read_ptr] * 2)
+                print(f"seen: {seen}")
                 return True
-
+            # even number then check for half in seen
+            if arr[read_ptr] % 2 == 0 and arr[read_ptr] / 2 in seen:
+                # always check first; if no match, then add x
+                seen.add(arr[read_ptr])
+                # seen.add(arr[read_ptr] / 2)
+                print(f"seen: {seen}")
+                return True
+            else:
+                # add current number to seen set
+                seen.add(arr[read_ptr])
+                seen.add(arr[read_ptr] / 2)
+                print(f"seen: {seen}")
+        
         return False
     
 # @lc code=end
@@ -91,15 +113,15 @@ class Solution:
 def main():
     sol = Solution()
 
-    # # Example 1
-    # arr = [10,2,5,3]
-    # print(sol.checkIfExist(arr))
-    # # Output: true
+    # Example 1
+    arr = [10,2,5,3]
+    print(sol.checkIfExist(arr))
+    # Output: true
 
-    # # Example 2
-    # arr = [3,1,7,11]
-    # print(sol.checkIfExist(arr))
-    # # Output: false
+    # Example 2
+    arr = [3,1,7,11]
+    print(sol.checkIfExist(arr))
+    # Output: false
 
     # Example 3
     arr = [0,-2,2]
