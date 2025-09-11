@@ -66,34 +66,22 @@ class Solution:
         # A set is a guest list: you check if a name is on it—simple yes/no.
         # A hashmap is a rolodex: each name has a card with extra details. Great if you need those details; overkill if you just need to know whether they’re in the building.
         seen = set()
+        # no pre populate seen set. check first then add current number to seen set
 
-        # step 1: Edge Cases
-        # edge case: 0,0
-        # if 0 in seen and 0 in arr:
-        #     return True
-        # print(f"seen: {seen}")
-
-
-        # step 2: create seen set
-        # loop through the array for seen numbers
-        # add to seen set for double or half
-        # for read_ptr in range(len(arr)):
-        #     seen.add(arr[read_ptr] * 2)
-        #     seen.add(arr[read_ptr] / 2)
-        #     print(f"seen: {seen}")
-
-        # step 3: compare each number to seen set
+        # step 1: compare each number to seen set
         # use a read pointer to traverse the array
         # compare each number to seen set
         for read_ptr in range(len(arr)):
             # odd or even number then check for double in seen
             if arr[read_ptr] * 2 in seen:
-                # always check first; if no match, then add x
+                # step 2
+                # always check first; if match, then add x
                 seen.add(arr[read_ptr])
                 print(f"seen: {seen}")
                 return True
             # even number then check for half in seen
             if arr[read_ptr] % 2 == 0 and arr[read_ptr] / 2 in seen:
+                # step 2
                 # always check first; if no match, then add x
                 seen.add(arr[read_ptr])
                 print(f"seen: {seen}")
