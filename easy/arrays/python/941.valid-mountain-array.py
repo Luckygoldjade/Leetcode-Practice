@@ -51,7 +51,59 @@
 
 # @lc code=start
 class Solution:
-    def validMountainArray(self, arr: List[int]) -> bool:
+    def validMountainArray(self, arr: list[int]) -> bool:
+        """
+        Check if the given array is a valid mountain array.
+        A valid mountain array must have at least 3 elements, with a peak element
         
+        """
+        # early exit
+        if len(arr) < 3:
+            return False
+        
+        # walk the array until find the peak
+        # it must be strictly increasing
+
+
+        # if no peak or peak is at the ends
+
+
+        # walk the array down from the peak
+        # it must be strictly decreasing
+
+
+        # if we reached the end, it's a valid mountain
+
+
 # @lc code=end
 
+def main():
+
+    sol = Solution()
+    # Example 1:
+    arr = [2,1]
+    # Output: false
+    print(sol.validMountainArray(arr))
+
+    # Example 2:
+    arr = [3,5,5]
+    # Output: false
+    print(sol.validMountainArray(arr))
+
+    # Example 3:
+    arr = [0,3,2,1]
+    # Output: true
+    print(sol.validMountainArray(arr))
+
+    # Extra test cases
+    arr = [0,2,3,4,5,2,1,0]
+    print(sol.validMountainArray(arr))  # True
+
+    # Edge cases
+    print(sol.validMountainArray([0,1,2,3,4,5,6,7,8,9]))  # False
+
+    # Edge cases
+    print(sol.validMountainArray([9,8,7,6,5,4,3,2,1,0]))  # False
+
+if __name__ == "__main__":
+    main()
