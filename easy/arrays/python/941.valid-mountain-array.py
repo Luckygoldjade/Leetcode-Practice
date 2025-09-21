@@ -69,12 +69,12 @@ class Solution:
                 break
 
         # if no peak or peak is at the ends
-        if read_ptr == 1 or read_ptr == len(arr) - 1:
+        if read_ptr == 1 or read_ptr == len(arr):
             return False
 
         # walk the array down from the peak
         # it must be strictly decreasing
-        for read_ptr in range(read_ptr + 1, len(arr)):
+        for read_ptr in range(read_ptr, len(arr)):
             if arr[read_ptr] >= arr[read_ptr - 1]:
                 return False
 
@@ -112,6 +112,11 @@ def main():
 
     # Edge cases
     print(sol.validMountainArray([9,8,7,6,5,4,3,2,1,0]))  # False
+
+    # failed case
+    arr = [1,3,2]
+    print(sol.validMountainArray(arr))    # True
+
 
 if __name__ == "__main__":
     main()
