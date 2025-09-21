@@ -54,8 +54,8 @@ class Solution:
     def validMountainArray(self, arr: list[int]) -> bool:
         """
         Check if the given array is a valid mountain array.
-        A valid mountain array must have at least 3 elements, with a peak element
-        
+        A valid mountain array must have at least 3 elements, with a peak element.
+        No inversions or plateaus are allowed.
         """
         # early exit
         if len(arr) < 3:
@@ -63,16 +63,24 @@ class Solution:
         
         # walk the array until find the peak
         # it must be strictly increasing
-
+        read_ptr = 0
+        for read_ptr in range(1, len(arr)):
+            if arr[read_ptr] <= arr[read_ptr - 1]:
+                break
 
         # if no peak or peak is at the ends
-
+        if read_ptr == 1 or read_ptr == len(arr) - 1:
+            return False
 
         # walk the array down from the peak
         # it must be strictly decreasing
+        for read_ptr in range(read_ptr + 1, len(arr)):
+            if arr[read_ptr] >= arr[read_ptr - 1]:
+                return False
 
 
         # if we reached the end, it's a valid mountain
+        return True
 
 
 # @lc code=end
