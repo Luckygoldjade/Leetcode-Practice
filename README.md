@@ -22,6 +22,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [27. Remove Element](https://leetcode.com/problems/remove-element/description) | Array Deletion | Python | 2 pointer approach
 | [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description) | Array Deletion | Python | 2 pointer approach
 | [1346. Check If N and Its Double Exist](https://leetcode.com/problems/check-if-n-and-its-double-exist/description) | Array Search | Python | loop and set
+| [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array) | Array walk | Python | One read pointer or one loop
 
 
 
