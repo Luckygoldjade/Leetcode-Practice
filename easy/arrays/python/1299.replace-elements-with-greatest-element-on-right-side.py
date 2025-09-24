@@ -54,7 +54,26 @@
 
 # @lc code=start
 class Solution:
-    def replaceElements(self, arr: List[int]) -> List[int]:
+    def replaceElements(self, arr: list[int]) -> list[int]:
         
+        return []
+    
 # @lc code=end
 
+def main():
+    sol = Solution()
+
+    # Example 1
+    arr = [17,18,5,4,6,1]
+    print(sol.replaceElements(arr))
+    # Output: [18,6,6,6,1,-1]
+
+    # Example 2:
+    arr = [400]
+    print(sol.replaceElements(arr))
+    # Output: [-1]
+
+    return 0
+
+if __name__ == "__main__":
+    main()
