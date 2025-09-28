@@ -79,7 +79,6 @@ class Solution:
             # move write pointer to the left
             write_ptr -= 1
 
-
         return arr
 
 # @lc code=end
@@ -98,6 +97,22 @@ def main():
     print("\n")
     print(sol.replaceElements(arr))
     # Output: [-1]
+
+    # Edge cases
+    arr = [1, 2]
+    print("\n")
+    print(sol.replaceElements(arr))
+    # Output: [2, -1]
+
+    arr = [2, 1]
+    print("\n")
+    print(sol.replaceElements(arr))
+    # Output: [1, -1]
+
+    arr = []
+    print("\n")
+    print(sol.replaceElements(arr))
+    # Output: []
 
     return 0
 
