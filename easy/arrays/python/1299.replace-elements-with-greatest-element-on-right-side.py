@@ -55,9 +55,33 @@
 # @lc code=start
 class Solution:
     def replaceElements(self, arr: list[int]) -> list[int]:
-        
-        return []
-    
+        """Replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1.
+        """
+        # Approach: Two Pointers
+        # each element is read once and written once
+        # read ptr from right to left
+        # max value seen so far
+        max_val = -1
+        # output is in-place, so we can use a write pointer
+        # write ptr from right to left
+        write_ptr = len(arr) - 1
+        n = len(arr)
+        # edge case. early exit
+        if n == 1:
+            return [-1]
+        for read_ptr in range(n - 1, -1, -1):
+            # store current value before overwriting it
+            current = arr[read_ptr]
+            # overwrite current position with max value seen so far
+            arr[write_ptr] = max_val
+            # update max value seen so far
+            max_val = max(max_val, current)
+            # move write pointer to the left
+            write_ptr -= 1
+
+
+        return arr
+
 # @lc code=end
 
 def main():
@@ -65,11 +89,13 @@ def main():
 
     # Example 1
     arr = [17,18,5,4,6,1]
+    print("\n")
     print(sol.replaceElements(arr))
     # Output: [18,6,6,6,1,-1]
 
     # Example 2:
     arr = [400]
+    print("\n")
     print(sol.replaceElements(arr))
     # Output: [-1]
 
