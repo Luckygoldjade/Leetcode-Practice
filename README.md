@@ -23,6 +23,7 @@ Welcome to my LeetCode practice repository. Solutions are organized by topic and
 | [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description) | Array Deletion | Python | 2 pointer approach
 | [1346. Check If N and Its Double Exist](https://leetcode.com/problems/check-if-n-and-its-double-exist/description) | Array Search | Python | loop and set
 | [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array) | Array walk | Python | One read pointer or one loop
+| [1299. Replace Elements with Greatest Element on Right Side](https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/description) | Array walk | Python | One R2L pointer for both read and write
 
 
 
