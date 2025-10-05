@@ -40,10 +40,25 @@
 
 # @lc code=start
 class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
+    def moveZeroes(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
         
 # @lc code=end
 
+def main():
+    sol = Solution()
+
+    # Example 1
+    nums = [0,1,0,3,12]
+    sol.moveZeroes(nums)
+    print(nums)     # Output should be [1,3,12,0,0]
+
+    # Example 2
+    nums = [0]
+    sol.moveZeroes(nums)
+    print(nums)     # Output should be [0]
+
+if __name__ == "__main__":
+    main()
