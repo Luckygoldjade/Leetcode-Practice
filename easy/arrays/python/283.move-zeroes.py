@@ -50,6 +50,10 @@ class Solution:
         write_ptr = 0
         n = len(nums)
 
+        # early return if array has only one element. No empty array case is not possible as per constraints.
+        if n == 1:
+            return
+        
         # read the array. every element needs to be read. so for loop.
         for read_ptr in range(len(nums)):
             # yes shift element to left.
@@ -66,7 +70,7 @@ class Solution:
         for i in range(write_ptr, n):
             nums[i] = 0
 
-        return nums
+        return
     
 
 # @lc code=end
